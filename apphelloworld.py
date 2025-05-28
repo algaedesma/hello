@@ -12,11 +12,4 @@ import streamlit as st
 st.title("Hello World")
 st.write("Ini adalah aplikasi Streamlit pertama saya!")
 
-st.set_page_config(page_title="Insurance Classifier", layout="wide")
-page = st.sidebar.selectbox("Select a page", ["Data Description", "Prediction", "About Naive Bayes"])
-
-st.set_page_config(page_title="Insurance Classifier", layout="wide")
-st.title("Tes")
-page = st.sidebar.selectbox("Select a page", ["Data Description", "Prediction", "About Naive Bayes"])
-
 
