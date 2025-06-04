@@ -1,4 +1,4 @@
 import streamlit as st
 
-st.set_page_config(page_title="Insurance Classifier", layout="wide")
-page = st.sidebar.selectbox("Select a page", ["Data Description", "Prediction", "About Naive Bayes"])
+st.title("Halaman Satu")
+st.write("Konten untuk halaman pertama ditampilkan di sini.")
