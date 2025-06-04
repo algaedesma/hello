@@ -1,25 +1,42 @@
 import streamlit as st
 
-st.set_page_config(page_title="Hello World App", layout="wide")
+st.set_page_config(page_title="Dashboard Hello World", layout="wide")
 
-st.title("Hello World App")
-st.write("Aplikasi ini menunjukkan contoh multi-halaman dengan Streamlit.")
+# Sidebar navigasi manual
+st.sidebar.title("Menu")
+page = st.sidebar.radio("Pilih Halaman:", ["Home", "Predict Hello", "Record Hello", "Data Hello"])
 
-col1, col2 = st.columns([2, 1])
+if page == "Home":
+    st.title("Hello World Dashboard - Home")
+    col1, col2 = st.columns([2,1])
+    with col1:
+        st.subheader("Visualisasi Contoh")
+        st.bar_chart([2, 4, 6, 8])
+    with col2:
+        st.subheader("Detail Informasi")
+        st.markdown("""
+        - Predict Hello: Prediksi sederhana dari input nama.
+        - Record Hello: Simpan pesan Hello.
+        - Data Hello: Tampilkan data Hello World.
+        """)
 
-with col1:
-    st.subheader("Visualisasi Contoh")
-    st.bar_chart([2, 4, 6, 8])
+elif page == "Predict Hello":
+    st.title("Predict Hello")
+    name = st.text_input("Masukkan nama kamu:")
+    if name:
+        st.success(f"Halo, {name}! Ini adalah prediksi Hello World untukmu.")
 
-with col2:
-    st.subheader("Detail Informasi")
-    st.markdown("""
-    **1. Halaman Predict Hello**  
-    Ini adalah halaman untuk menampilkan prediksi berdasarkan input sederhana.
+elif page == "Record Hello":
+    st.title("Record Hello")
+    text = st.text_area("Tulis pesan Hello kamu di sini:")
+    if st.button("Simpan"):
+        st.info("Pesan telah disimpan (simulasi).")
 
-    **2. Halaman Record Hello**  
-    Kamu bisa mencatat data 'Hello' di sini.
-
-    **3. Halaman Data Hello**  
-    Menampilkan data yang berkaitan dengan Hello World.
-    """)
+elif page == "Data Hello":
+    st.title("Data Hello")
+    import pandas as pd
+    data = pd.DataFrame({
+        'Nama': ['Alice', 'Bob', 'Charlie'],
+        'Pesan': ['Hello!', 'Hi there!', 'Howdy!']
+    })
+    st.dataframe(data)
