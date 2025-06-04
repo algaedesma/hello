@@ -1,4 +1,6 @@
 import streamlit as st
 
-st.title("Halaman Dua")
-st.write("Konten untuk halaman kedua ditampilkan di sini.")
+st.title("Record Hello")
+text = st.text_area("Tulis pesan Hello kamu di sini:")
+if st.button("Simpan"):
+    st.info("Pesan telah disimpan (simulasi).")
